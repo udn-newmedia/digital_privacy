@@ -7,7 +7,13 @@
 <script>
 export default {
   name: 'ProgressClock',
-}
+  props: {
+    currentTime: {
+      type: string,
+      required: true,
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
