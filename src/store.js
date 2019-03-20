@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    cardNumber: 7,
+    cardNumber: 5,
     storyCardScript: {
       0: {
         index: 0,
@@ -61,7 +61,7 @@ export default new Vuex.Store({
   },
   mutations: {
     incrementPage(state, param) {
-      state.storyCardPage += param;
+      state.storyCardPage = param;
     },
   },
   actions: {

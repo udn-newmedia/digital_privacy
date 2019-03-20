@@ -1,10 +1,10 @@
 <template>
   <div class="dynamic-digit-container" :style="{ backgroundColor: backgroundColor }">
     <div class="dynamic-digit-wrapper" :style="{ color: color }">
-      <div class="dynamic-digit">
+      <span class="dynamic-digit">
         {{count}}
         <span class="digit-unit">{{unit}}</span>
-      </div>
+      </span>
     </div>
     <div class="description">
       <slot></slot>
@@ -72,13 +72,13 @@ export default {
     position: relative;
     width: 100%;
     text-align: left;
-    padding: 0 15px;
+    padding: 20px 15px;
     margin: 0 auto;
     @media (min-width: 768px) and (max-width: 1023px) {
-      padding: 0 100px;
+      padding: 20px 100px;
     }
     @media screen and (min-width: 1024px) {
-      padding: 0;
+      padding: 20px 0;
     }
   }
 
@@ -90,12 +90,14 @@ export default {
     }
   }
   .dynamic-digit-wrapper {
-    display: flex;
-
+      display: flex;
     .dynamic-digit {      
+      display:inline-block;
+      height: 60px;
       font-size: 48px;
       font-weight: bold;
       @media screen and (min-width: 1024px) {
+        height: 80px;
         font-size: 64px;
       }
     }
@@ -105,9 +107,12 @@ export default {
   }
 
   .description {
-    font-weight: bold;
+    color: #8489b1;
     p {
       margin: 0;
     }
+  }
+  .source {
+    margin: 20px 0;
   }
 </style>

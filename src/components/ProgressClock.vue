@@ -35,7 +35,7 @@ export default {
     calcMinuteAngle() {
       return 'rotate(' + (this.currentTime[1] * 6 - 90 + 1) + 'deg)';
     },
-  }
+  },
 };
 </script>
 

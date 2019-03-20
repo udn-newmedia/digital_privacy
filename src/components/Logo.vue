@@ -1,13 +1,30 @@
 <template>
   <div class="logo-block">
-    <div id="vision" class="logo" v-if="yesToBoolean(setProps('useVision'))">
+    <div
+      id="vision"
+      class="logo"
+      v-if="yesToBoolean(setProps('useVision'))"
+      @click="sendGA('願景')"
+    >
       <a href="https://vision.udn.com/" target="_blank"><img width="140" src="https://udn.com/upf/newmedia/image/20180829Logo/logo_udnhope2.jpg" alt=""></a>
     </div>
-    <div class="logo">
-      <a href="https://udn.com/news/index" target="_blank"><img src="https://udn.com/upf/newmedia/image/20180829Logo/logo_udn2.jpg"></a>
+    <div
+      class="logo"
+      @click="sendGA('新聞網')"
+    >
+      <a href="https://udn.com/news/index" target="_blank">
+        <img src="https://udn.com/upf/newmedia/image/20180829Logo/logo_udn2.jpg">
+      </a>
     </div>
-    <div class="logo" id="nmd" v-if="!yesToBoolean(setProps('useUbrand'))">
-      <a href="https://www.facebook.com/udnNewMediaLab/" target="_blank"><img src="https://udn.com/upf/newmedia/image/20180829Logo/logo_new_media_center2.jpg"></a>
+    <div
+      class="logo"
+      id="nmd"
+      v-if="!yesToBoolean(setProps('useUbrand'))"
+      @click="sendGA('新媒體')"
+    >
+      <a href="https://www.facebook.com/udnNewMediaLab/" target="_blank">
+        <img src="https://udn.com/upf/newmedia/image/20180829Logo/logo_new_media_center2.jpg">
+      </a>
     </div>
     <div class="thirdparty">
       <slot></slot>
@@ -18,6 +35,8 @@
 <script>
 import yesToBoolean from '../mixin/yesToBoolean.js'
 import setProps from '../mixin/setProps.js'
+import Utils from 'udn-newmedia-utils'
+
 export default {
   name: 'Logo',
   mixins: [setProps, yesToBoolean],
@@ -33,7 +52,17 @@ export default {
       type: String
     }
   },
-}
+  methods: {
+    sendGA(target) {
+      ga("newmedia.send", {
+        "hitType": "event",
+        "eventCategory": "logo",
+        "eventAction": "click",
+        "eventLabel": "[" + Utils.detectPlatform() + "] [" + document.querySelector('title').innerHTML + "] [" + target + "] [logo click]"
+      })
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

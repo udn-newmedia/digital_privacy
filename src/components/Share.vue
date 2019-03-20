@@ -1,6 +1,6 @@
 <template>
   <div class="share-block">
-    <div class="fb-like-block" @click="shareToFb">
+    <div class="fb-like-block">
       <div class="fb-like" :data-href="setProps('href')" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
     </div>
     <div class="line-block" @click="shareToLine">
@@ -27,14 +27,6 @@ export default {
     },
   },
   methods: {
-    shareToFb() {
-      ga('newmedia.send', {
-        hitType: 'event',
-        eventCategory: 'FB Share',
-        eventAction: 'click',
-        eventLabel: `[${detectPlatform()}] [${document.querySelector('title').innerHTML}] [fb share]`,
-      });
-    },
     shareToLine() {
       if (detectMob()) {
         // 手機
@@ -44,9 +36,9 @@ export default {
       }
       ga('newmedia.send', {
         hitType: 'event',
-        eventCategory: 'Line Share',
+        eventCategory: 'share',
         eventAction: 'click',
-        eventLabel: `[${detectPlatform()}] [${document.querySelector('title').innerHTML}] [line share]`,
+        eventLabel: `[${detectPlatform()}] [${document.querySelector('title').innerHTML}] [一般line icon] [line share]`,
       });
     },
   },

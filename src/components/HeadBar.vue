@@ -1,8 +1,8 @@
 <template>
   <div class="head-bar-container">
     <div class="logo-container">
-      <div class="logo-wrapper" @click="sendGA">
-        <a href="https://udn.com/upf/newmedia/2019_data/digital_rights/index.html" target="_blank">
+      <div class="logo-wrapper" @click="sendGA_Logo('聯logo')">
+        <a :href="projectHref" target="_blank">
           <i class="udn-icon udn-icon-logo"></i>
         </a>
       </div>
@@ -10,8 +10,9 @@
     <div v-if="!isMob" class="links-wrapper">
       <div v-for="(item, index) in outLinkList" :key="index"
         class="link-button"
+        @click="sendGA(item.name)"
       >
-        <a href="item.link">{{item.name}}</a>
+        <a :href="item.link" target="_blank">{{item.name}}</a>
       </div>
     </div>
     <slot name="anchor"></slot>
@@ -33,22 +34,43 @@
       :style="{
         transform: 'translateX(' + headBarTraslation + 'vw)',
       }">
-      <div v-for="(item, index) in outLinkList" :key="index"
-        class="link-mob-button"
-      >
-        <a href="item.link">{{item.name}}</a>
-        <hr>
+      <div class="link-mob-button-wrapper">
+        <div v-for="(item, index) in outLinkList" :key="index"
+          class="link-mob-button"
+        >
+          <a :href="item.link" target="_blank">{{item.name}}</a>
+          <hr>
+        </div>
+      </div>
+      <div class="share-wrapper">
+        <div>分享</div>
+        <div class="share-btn" @click="shareFacebookGA">
+          <a :href="'https://www.facebook.com/sharer/sharer.php?u=' + projectHref" target="_blank">
+            <img src="img/btn_fb.svg" alt="">
+          </a>
+        </div>
+        <div class="share-btn" @click="shareLineGA">
+          <a :href="'https://social-plugins.line.me/lineit/share?url=' + projectHref" target="_blank">
+            <img src="img/btn_line.svg" alt="">
+          </a>
+        </div>
       </div>
     </div>
-  </div>  
+  </div>
 </template>
 
 <script>
+import Utils from 'udn-newmedia-utils'
+
 export default {
   name: 'HeadBar',
   props: {
     outLinkList: {
       type: Array,
+    },
+    projectHref: {
+      type: String,
+      required: true,
     },
   },
   data() {
@@ -59,8 +81,37 @@ export default {
     };
   },
   methods: {
-    sendGA() {
-
+    sendGA(target) {
+      window.ga("newmedia.send", {
+        "hitType": "event",
+        "eventCategory": "headBar",
+        "eventAction": "click",
+        "eventLabel": "[" + Utils.detectPlatform() + "] [" + document.querySelector('title').innerHTML + "] [" + target + "] [page click]"
+      })
+    },
+    sendGA_Logo(target) {
+      window.ga("newmedia.send", {
+        "hitType": "event",
+        "eventCategory": "headBar",
+        "eventAction": "click",
+        "eventLabel": "[" + Utils.detectPlatform() + "] [" + document.querySelector('title').innerHTML + "] [" + target + "] [logo click]"
+      })
+    },
+    shareFacebookGA() {
+      window.ga('newmedia.send', {
+        hitType: 'event',
+        eventCategory: 'share',
+        eventAction: 'click',
+        eventLabel: '[' + Utils.detectPlatform() + '] [' + document.querySelector('title').innerHTML + '] [特製fb icon] [fb share]'
+      });
+    },
+    shareLineGA() {
+      window.ga('newmedia.send', {
+        hitType: 'event',
+        eventCategory: 'share',
+        eventAction: 'click',
+        eventLabel: '[' + Utils.detectPlatform() + '] [' + document.querySelector('title').innerHTML + '] [特製line icon] [line share]'
+      });
     },
     certifyDevice() {
       if (window.innerWidth > 768) {
@@ -213,9 +264,12 @@ export default {
     right: 0;
     width: 100vw;
     height: calc(100vh - 50px);
-    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     padding: 5%;
     box-sizing: border-box;
+    background-color: #fff;
     transition: transform .666s ease-in-out;
 
     .link-mob-button {
@@ -224,6 +278,16 @@ export default {
       a {
         color: #acacac;
         transition: 288ms ease-in;
+      }
+    }
+    .share-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10%;
+
+      .share-btn {
+        margin: 10px;
       }
     }
   }

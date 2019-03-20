@@ -173,7 +173,7 @@ span {
 .glitch-small {
   font-size: 18px;
   @media screen and (min-width: 1024px) {
-    font-size: 32px;
+    font-size: 21px;
   }
 }
 

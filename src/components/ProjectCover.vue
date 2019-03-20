@@ -3,13 +3,12 @@
     <div
       v-if="fixedFlag"
       class="cover-image-wrapper sup"
-      :style="{ 
-        backgroundImage: 'url(' + certifyDevice + ')',
-      }"></div>
+    ></div>
     <div
       :class="{
         'cover-image-wrapper': true,
-        'cover-fixed': fixedFlag
+        'cover-fixed': fixedFlag,
+        'cover-blur': blurFlag,
       }"
       :style="{ 
         backgroundImage: 'url(' + certifyDevice + ')',
@@ -20,12 +19,12 @@
     <div class="cover-text-wrapper" :style="{backgroundColor: backgroundColor}">
       <slot name="intro"></slot>
       <div class="share-wrapper">
-        <div class="share-btn" @click="shareFacebook">
+        <div class="share-btn" @click="shareFacebookGA">
           <a :href="'https://www.facebook.com/sharer/sharer.php?u=' + href" target="_blank">
             <img src="img/btn_fb.svg" alt="">
           </a>
         </div>
-        <div class="share-btn" @click="shareLine">
+        <div class="share-btn" @click="shareLineGA">
           <a :href="'https://social-plugins.line.me/lineit/share?url=' + href" target="_blank">
             <img src="img/btn_line.svg" alt="">
           </a>
@@ -36,6 +35,8 @@
 </template>
 
 <script>
+import { detectPlatform } from 'udn-newmedia-utils';
+
 export default {
   name: "ProjectCover",
   props: {
@@ -63,6 +64,7 @@ export default {
   data() {
     return {
       fixedFlag: false,
+      blurFlag: false,
     };
   },
   computed: {
@@ -75,11 +77,21 @@ export default {
     },
   },
   methods: {
-    shareFacebook() {
-
+    shareFacebookGA() {
+      window.ga('newmedia.send', {
+        hitType: 'event',
+        eventCategory: 'share',
+        eventAction: 'click',
+        eventLabel: `[${detectPlatform()}] [${document.querySelector('title').innerHTML}] [特製fb icon] [fb share]`,
+      });
     },
-    shareLine() {
-
+    shareLineGA() {
+      window.ga('newmedia.send', {
+        hitType: 'event',
+        eventCategory: 'share',
+        eventAction: 'click',
+        eventLabel: `[${detectPlatform()}] [${document.querySelector('title').innerHTML}] [特製line icon] [line share]`,
+      });
     },
   },
   mounted() {
@@ -93,8 +105,14 @@ export default {
             document.getElementById(this.coverId).offsetHeight
       ) {
         vm.fixedFlag = true;
+        
+        // 滑到圖片一半開啟blur效果
+        if (window.pageYOffset > document.getElementById(this.coverId).offsetHeight * 0.2) {
+          vm.blurFlag = true;
+        }
       } else {
         vm.fixedFlag = false;
+        vm.blurFlag = false;
       }
     });
   }
@@ -116,8 +134,8 @@ export default {
   .cover-title-wrapper {
     position: absolute;
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    flex-direction: column-reverse;
+    align-items: flex-start;
     top: 10%;
     left: 10%;
     writing-mode: vertical-rl;
@@ -148,6 +166,20 @@ export default {
 .cover-fixed {
   position: fixed;
   top: 0;
+}
+
+.cover-blur {
+  filter: blur(10px);
+  animation-name: blur;
+  animation-duration: .333s;
+  @keyframes blur {
+    0% {
+      filter: blur(0);
+    }
+    100% {
+      filter: blur(10px);
+    }
+  }
 }
 
 .cover-text-wrapper {
@@ -182,7 +214,12 @@ export default {
 
   .share-btn {
     margin: 20px;
+    opacity: 0.6;
     cursor: pointer;
+    transition: .333s ease-in-out;
+    &:hover {
+      opacity: 1;
+    }
   }
 }
 

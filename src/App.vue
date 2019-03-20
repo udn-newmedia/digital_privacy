@@ -1,7 +1,10 @@
 <template>
   <div id="app">
     <Indicator></Indicator>
-    <HeadBar :outLinkList="outLinkList">
+    <HeadBar
+      :outLinkList="outLinkList"
+      projectHref="https://udn.com/upf/newmedia/2019_data/digital_privacy/"
+    >
       <SideAnchor
         slot="anchor"
         :outlineData="[
@@ -17,7 +20,7 @@
       imgSrcMob="img/cover_mob1_1.jpg"
       imgSrcWeb="img/cover_web1_1.jpg"
       backgroundColor="#011936"
-      href="https://udn.com/upf/newmedia/2019_data/digital_rights/index.html"
+      href="https://udn.com/upf/newmedia/2019_data/digital_privacy/"
     >
       <div slot="title" class="cover-title-wrapper">
         <div class="minor">按讚、打卡、看影音</div>
@@ -29,7 +32,7 @@
         <p><br></p>
         <p>而這些「免費」拿走隱私的科技業者，財富卻以驚人速度增加。</p>
         <p><br></p>
-        <p><strong>「隱私是一種基本人權」</strong>，蘋果執行長庫克警告，我們的個資正被「武器化」，用來瞄準我們。當這些數據不斷被累積、組裝與交易，我們面對的未來不但有害、甚至會致命。</p>
+        <p><strong style="color: #6495ed;">「隱私是一種基本人權」</strong>，蘋果執行長庫克警告，我們的個資正被「武器化」，用來瞄準我們。當這些數據不斷被累積、組裝與交易，我們面對的未來不但有害、甚至會致命。</p>
       </div>
     </ProjectCover>
     <NoiseCover
@@ -64,7 +67,7 @@
       <div class="full-image-text">臉書掀起10年挑戰的熱潮，不少名人都上傳10年前後的照片，比對2009年和2019年的自己有什麼改變。圖／取自網路</div>
     </FullImage>
     <ArticleContent :style="{ paddingBottom: '10px' }">
-      <h3>數位足跡變金礦<br>把你的個資偷光光</h3>
+      <h3>數位足跡變金礦<br>網路巨頭綁架你我的隱私</h3>
       <p><br></p>
       <p>當消費者迫不及待地勾選「我同意」交換免費服務，透過AI、深度學習技術，這些數位足跡成為業者的金礦。</p>
     </ArticleContent>
@@ -73,6 +76,15 @@
     </DynamicDigit>
     <DynamicDigit unit="億元" :amount="120">
       <div><p>Google、Facebook、LINE等社交媒體平台賺走120億元</p></div>
+      <div 
+        class="source"
+        style="
+        font-size: 17px;
+        font-weight: normal;
+        color: #808080;
+        ">
+        資料來源／2018台灣網路透明度報告
+      </div>
     </DynamicDigit>
     <ArticleContent :style="{ paddingTop: '10px' }">
       <p><br></p>
@@ -89,11 +101,15 @@
       <p><br></p>
       <Quote text="“2018年Facebook連番爆發用戶個資外洩的醜聞後，世人才知Facebook平台上的用戶資料很容易被一個小遊戲取走，連Facebook也不知道這些資料後續的用途。”"></Quote>
       <p><br></p>
-      <p>不少台灣學者專家警告，許多企業開發App時，任意向用戶索取授權，取得大量個資，但實際上沒有保護這些資料的能力。駭客可以在任何一個資安保護不佳的小軟體商資料庫裡，取得一堆個人數位資料。</p>
-      <p><br></p>
-      <p><br></p>
+      <p>不少台灣學者專家警告，許多企業開發App時，任意向用戶索取授權，取得大量個資，但實際上保護這些資料的能力。駭客可以在任何一個資安保護不佳的小軟體商資料庫裡，取得一堆個人數位資料。</p>
     </ArticleContent>
-    <StoryBoard></StoryBoard>
+    <StoryBoard>
+      <div slot="article">
+        <h3>智慧生活<br>讓你的隱私被看光光？ </h3>
+        <p><br></p>
+        <p>現代人的生活離不開3C科技產品，從最近正夯的智慧音箱、智慧手環，到買東西結帳時使用的行動支付、人臉辨識技術，但你可知道？這些科技產品和服務潛藏哪些個資外洩的風險？</p>
+      </div>
+    </StoryBoard>
     <ArticleContent>
       <h3>不滿意就不要用<br>使用者被迫按下「同意」賣身契</h3>
       <p><br></p>
@@ -116,7 +132,9 @@
       <p><br></p>
       <p>此舉逼使Facebook承諾停用應用程式，否則舊版軟體可能無法在iPhone上繼續使用，蘋果之怒比國會更能叫臉書低頭。</p>
       <p><br></p>
-      <p><strong>2018年5月底正式生效的歐盟《一般資料保護規則》（GDPR），要求企業需要明確、全面解釋會收集哪些數據、如何使用、並揭露共享的第三方。</strong>企業更要明確獲得用戶同意才能保存和處理用戶的數據，成為第一個以區域的法規力量，抵抗來自科技巨人席捲全球服務對個人數位隱私的侵犯。</p>
+      <p><strong>2018年5月底正式生效的歐盟<Dictionary description="歐盟「一般資料保護法規」（GDPR）涵蓋所有持有歐盟公民資料的公司，不僅限於總部設在歐盟的企業。GDPR保護歐盟認定的「個人」資料，凡是敏感性、可與個人連結的資料均受保障，例如信用卡號、旅遊紀錄、網路搜尋紀錄、穿戴式裝置紀錄的生物識別資料、IP和個人電腦位址。
+      GDPR保障消費者擁有「拒絕權」、「更正權」、「資料可攜權」與「被遺忘權」。其中，最重要的「被遺忘權」賦予資料當事人在特定條件下，有權利要求查看某公司持有與自己有關的所有資訊，並要求修改或刪除。">《一般資料保護規則》（GDPR）</Dictionary>
+        ，要求企業需要明確、全面解釋會收集哪些數據、如何使用、並揭露共享的第三方。</strong>企業更要明確獲得用戶同意才能保存和處理用戶的數據，成為第一個以區域的法規力量，抵抗來自科技巨人席捲全球服務對個人數位隱私的侵犯。</p>
       <p><br></p>
       <p><strong>2019年1月，Google就被法國開罰5000萬歐元。</strong>但這些改善能適用於台灣嗎？Google已宣布，在法國被罰是個案，台灣地區並不適用。</p>
     </ArticleContent>
@@ -173,7 +191,7 @@
         imgSrcMob="img/mob1_02.jpg"
         imgSrcWeb="img/web1_02.jpg"
       >
-        <div class="full-image-text">有些手電筒App要求「讀取通訊錄」等軟體用不到的權限，可能造成用戶隱私外洩。</div>
+        <div class="full-image-text">有些手電筒App要求存取過多軟體用不到的權限，可能造成用戶隱私外洩。</div>
       </FullImage>
       <p><br></p>
       <p><br></p>
@@ -183,9 +201,9 @@
       <p><br></p>
       <p>5元折價不夠看，但800元，貢獻個資就可以考慮。</p>
       <p><br></p>
-      <p>丹麥大學曾進行<a href="https://www.youtube.com/watch?v=lzqTbS3k-ws&feature=youtu.be" target="_blank">社會實驗</a>，要路人下載一款免費的手電筒App，好幫忙測試。手電筒App會取用使用者的照片、攝影機、麥克風以及GPS定位。就如同遠在台灣的我們，使用者根本不去注意App的取用權限。</p>
+      <p>丹麥大學曾進行<a href="https://www.youtube.com/watch?v=lzqTbS3k-ws&feature=youtu.be" target="_blank" @click="sendGA('社會實驗')">社會實驗</a>，要路人下載一款免費的手電筒App，好幫忙測試。手電筒App會取用使用者的照片、攝影機、麥克風以及GPS定位。就如同遠在台灣的我們，使用者根本不去注意App的取用權限。</p>
       <p><br></p>
-      <p直到數天後，實驗者根據GPS定位就能找到使用者的家，敲門那刻，社會實驗證明「送出個人隱私的，就是你自己」。研究人員解釋，透過這個手電筒App，可以瀏覽用戶和朋友所有對話。使用者的反應包括：</p>
+      <p>直到數天後，實驗者根據GPS定位就能找到使用者的家，敲門那刻，社會實驗證明「送出個人隱私的，就是你自己」。研究人員解釋，透過這個手電筒App，可以瀏覽用戶和朋友所有對話。使用者的反應包括：</p>
       <p><br></p>
       <p><strong>「我不認識你，你卻入侵我的世界，這很恐怖。」</strong></p>
       <p><br></p>
@@ -200,9 +218,7 @@
       <p><br></p>
       <p>台灣人權協會專案經理何明諠說，消費者不花時間是把業者的約定條款看完，急著按下同意，是有原因的：</p>
       <p><br></p>
-      <p><strong>1. 服務不可取代，LINE同事都在用，你不用就無法工作</strong></p>
-      <p><strong>2. 業者不同意，你就無法用服務</strong></p>
-      <p><strong>3. 使用條款法律文字落落長，很難看得完，看了也不見得看得懂</strong></p>
+      <p><strong>1. 服務不可取代，LINE同事都在用，你不用就無法工作<br>2. 業者不同意，你就無法用服務<br>3. 使用條款法律文字落落長，很難看得完，看了也不見得看得懂</strong></p>
       <p><br></p>
       <p>另一個民眾毫無戒心的原因是，<strong>「個資外洩的傷害，不會痛，也看不見，外洩了也不會有馬上感覺」</strong>，讓民眾無感，掉以輕心。</p>
     </ArticleContent>
@@ -231,18 +247,16 @@
       <p><br></p>
       <p><strong>5.不看盜版影音網站</strong></p>
       <p>台灣盜版影音猖獗，不少網站被抄了幾次都能捲土重來，就是因為觀看流量大，帶來的廣告商機驚人。<strong>串流影音業者承認，免費影音網站都會在你的觀看設備如手機、電腦中，埋入追蹤網路行為的cookie</strong>，即使你換到別的網站，廣告也是如影隨形。有些網站更可能帶有病毒，盜取使用者個資。</p>
-      <p><br></p>
-      <p><strong>聯合報系願景工程3/25起一連三天推出<a href="" target="_blank">「透明人生─隱私危機」</a>專題報導，</strong>，由民眾對數位足跡的不在意、企業蒐集窺探你的生活，以及政府作為最大的人民個資擁有者等角度，探討台灣民眾面臨的數位人權難題。</p>
-      <p><br></p>
-      <p><br></p>
-      <p><br></p>
     </ArticleContent>
     <ArticleContent backgroundColor="#ffffff">
+      <p><strong>聯合報系願景工程3/25起一連三天推出「隱私網戰」專題報導<a href="" target="_blank" @click="sendGA('「透明人生─隱私危機」')"></a>，</strong>由民眾對數位足跡的不在意、企業蒐集窺探你的生活，以及政府作為最大的人民個資擁有者，如何在發展大數據時兼顧個資等角度，探討台灣面臨的數位人權難題。</p>
+      <p><br></p>
+      <p><br></p>
       <Question href="https://www.surveycake.com/s/KpQKN" text="填寫閱讀體驗問卷"></Question>
       <p><br></p>
       <p><br></p>
       <p><br></p>
-      <Share href="https://udn.com/upf/newmedia/2019_data/digital_rights/index.html"></Share>
+      <Share href="https://udn.com/upf/newmedia/2019_data/digital_privacy/"></Share>
       <Logo use-vision="yes"></Logo>
       <p><br></p>
       <Editor>
@@ -271,7 +285,7 @@
       >
       </Relate>
       <p><br></p>
-      <FBComment href="https://udn.com/upf/newmedia/2019_data/digital_rights/index.html"></FBComment>
+      <FBComment href="https://udn.com/upf/newmedia/2019_data/digital_privacy/"></FBComment>
     </ArticleContent>
     <Footer></Footer>
   </div>
@@ -279,6 +293,7 @@
 
 <script>
 import ArticleContent from '@/components/ArticleContent.vue'
+import Dictionary from '@/components/Dictionary.vue'
 import DynamicDigit from '@/components/DynamicDigit.vue'
 import Editor from '@/components/Editor.vue'
 import FBComment from '@/components/FBComment.vue'
@@ -297,10 +312,13 @@ import Share from '@/components/Share.vue'
 import SideAnchor from '@/components/SideAnchor.vue'
 import StoryBoard from '@/components/StoryBoard.vue'
 
+import Utils from 'udn-newmedia-utils'
+
 export default {
   name: 'app',
   components: {
     ArticleContent,
+    Dictionary,
     DynamicDigit,
     Editor,
     FBComment,
@@ -324,19 +342,29 @@ export default {
       outLinkList: [
         {
           name: '數位隱私變商品',
-          link: '',
+          link: 'https://udn.com/upf/newmedia/2019_data/digital_privacy/',
         },
         {
           name: '政府正在監控你',
-          link: '',
+          link: 'https://udn.com/upf/newmedia/2019_data/digital_privacy/government',
         },
         {
           name: '測驗透明人指數',
-          link: '',
+          link: 'https://udn.com/upf/newmedia/2019_data/digital_privacy/quiz',
         },
       ],
     };
   },
+  methods: {
+    sendGA(target) {
+      window.ga("newmedia.send", {
+        "hitType": "event",
+        "eventCategory": "aTag",
+        "eventAction": "click",
+        "eventLabel": "[" + Utils.detectPlatform() + "] [" + document.querySelector('title').innerHTML + "] [" + target + "] [aTag click]"
+      })
+    },
+  }
 };
 </script>
 
@@ -346,5 +374,9 @@ body {
 }
 #app {
   text-align: center;
+}
+h3 {
+  font-weight: 800;
+  line-height: 1.5;
 }
 </style>

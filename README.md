@@ -28,3 +28,6 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 "# digital_human_rights_partial" 
+
+### StoryBoard的dots要更換顏色
+從node_modules/slick-carousel/slick/slick-theme.css :195和:203
