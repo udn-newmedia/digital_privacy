@@ -48,10 +48,8 @@ export default {
         }
       }, 0.003);
     },
-  },
-  mounted() {
-    const vm = this;
-    window.addEventListener("scroll", function() {
+    handleScroll() {
+      const vm = this;
       // 滑到才開始跑數字
       if ( window.pageYOffset >= vm.$el.offsetTop - window.innerHeight && window.pageYOffset <= vm.$el.offsetTop) {
         
@@ -62,7 +60,13 @@ export default {
       } else {
         vm.count = 0;
       }
-    });
+    },
+  },
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  destroyed() {
+    window.removeEventListener('scroll', this.handleScroll)
   },
 };
 </script>

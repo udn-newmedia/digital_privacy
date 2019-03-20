@@ -287,12 +287,14 @@
       <p><br></p>
       <FBComment href="https://udn.com/upf/newmedia/2019_data/digital_privacy/"></FBComment>
     </ArticleContent>
+    <BackTop></BackTop>
     <Footer></Footer>
   </div>
 </template>
 
 <script>
 import ArticleContent from '@/components/ArticleContent.vue'
+import BackTop from '@/components/BackTop.vue'
 import Dictionary from '@/components/Dictionary.vue'
 import DynamicDigit from '@/components/DynamicDigit.vue'
 import Editor from '@/components/Editor.vue'
@@ -318,6 +320,7 @@ export default {
   name: 'app',
   components: {
     ArticleContent,
+    BackTop,
     Dictionary,
     DynamicDigit,
     Editor,

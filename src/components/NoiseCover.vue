@@ -57,9 +57,9 @@ export default {
       }
     },
   },
-  mounted() {
-    const vm = this;
-    window.addEventListener("scroll", () => {
+  methods: {
+    handleScroll() {
+      const vm = this;
       if (
         // 如果圖片不在最上面，且視窗滑到圖片的範圍裡
         document.getElementById(this.coverId).offsetTop >= 0 &&
@@ -72,8 +72,14 @@ export default {
       } else {
         vm.fixedFlag = false;
       }
-    });
-  }
+    },
+  },
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  destroyed() {
+    window.removeEventListener('scroll', this.handleScroll)
+  },
 };
 </script>
 

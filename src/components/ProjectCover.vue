@@ -93,10 +93,8 @@ export default {
         eventLabel: `[${detectPlatform()}] [${document.querySelector('title').innerHTML}] [特製line icon] [line share]`,
       });
     },
-  },
-  mounted() {
-    const vm = this;
-    window.addEventListener("scroll", () => {
+    handleScroll() {
+      const vm = this;      
       if (
         // 如果圖片不在最上面，且視窗滑到圖片的範圍裡
         window.pageYOffset > document.getElementById(this.coverId).offsetTop &&
@@ -114,8 +112,14 @@ export default {
         vm.fixedFlag = false;
         vm.blurFlag = false;
       }
-    });
-  }
+    },
+  },
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  destroyed() {
+    window.removeEventListener('scroll', this.handleScroll)
+  },
 };
 </script>
 
@@ -130,7 +134,8 @@ export default {
   align-items: center;
   background-size: cover;
   background-position: center;
-  
+  transition: .333s ease-in-out;
+
   .cover-title-wrapper {
     position: absolute;
     display: flex;
@@ -171,7 +176,7 @@ export default {
 .cover-blur {
   filter: blur(10px);
   animation-name: blur;
-  animation-duration: .333s;
+  animation-duration: .666s;
   @keyframes blur {
     0% {
       filter: blur(0);

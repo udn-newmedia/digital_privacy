@@ -17,7 +17,6 @@
 </template>
 
 <script>
-import Vue from 'vue';
 import Utils from 'udn-newmedia-utils';
 
 export default {
@@ -66,14 +65,8 @@ export default {
         return false;
       }
     },
-  },
-  mounted() {
-    for(const i in this.outlineData) {
-      this.anchorPageYoffset.push(document.getElementById(this.outlineData[i][0]).offsetTop);
-      this.anchorFlag.push(false);
-    }
-    const vm = this;    
-    window.addEventListener('scroll', () => {
+    handleScroll() {
+      const vm = this;    
       // 進入主文才要出現
       if (window.pageYOffset > document.getElementById('anchor-1').offsetTop) {
         vm.anchorShowFlag = true;
@@ -92,7 +85,7 @@ export default {
               vm.$refs['anchorRef' + i][0].style.color = '#000000';
               vm.$router.push({ path: 'self_protection' });
               vm.anchorFlag[i] = true;
-              window.ga('newmedia.send', 'pageview', '/upf/newmedia/2019_data/digital_privacy/self_protection');
+              window.ga('newmedia.send', 'pageview', '/upf/newmedia/2019_data/digital_privacy/#/self_protection');
             }
           } else {
             vm.$refs['anchorRef' + i][0].style.color = '#c8c8c8';
@@ -106,7 +99,7 @@ export default {
               vm.$refs['anchorRef' + i][0].style.color = '#000000';
               vm.$router.push({ path: 'crisis' });
               vm.anchorFlag[i] = true;
-              window.ga('newmedia.send', 'pageview', '/upf/newmedia/2019_data/digital_privacy/crisis');
+              window.ga('newmedia.send', 'pageview', '/upf/newmedia/2019_data/digital_privacy/#/crisis');
             }
           } else {
             vm.$refs['anchorRef' + i][0].style.color = '#c8c8c8';
@@ -114,7 +107,17 @@ export default {
           }
         }
       }
-    });
+    },
+  },
+  mounted() {
+    for(const i in this.outlineData) {
+      this.anchorPageYoffset.push(document.getElementById(this.outlineData[i][0]).offsetTop);
+      this.anchorFlag.push(false);
+    }
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  destroyed () {
+    window.removeEventListener('scroll', this.handleScroll)
   },
 };
 </script>
