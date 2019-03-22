@@ -44,16 +44,29 @@ export default {
     img {
       width: 100%;
     }
-    .full-image-text {
+
+    .full-image-text, .image-text {
       position: relative;
       width: 100%;
-      padding: 5px 15px;
       font-size: 17px;
       color: #808080;
-      text-align: left;
+      text-align: justify;
       @media screen and (min-width: 1024px) {
         width: 800px;
         margin: 0 auto;
+      }
+    }
+
+    .full-image-text {
+      padding: 5px 15px;
+      @media screen and (min-width: 1024px) {
+        padding: 5px 0;
+      }
+    }
+    
+    .image-text {
+      padding: 5px 0;
+      @media screen and (min-width: 1024px) {
         padding: 5px 0;
       }
     }

@@ -2,6 +2,7 @@
   <span class="dictionary-container" @click="descriptionFlag = !descriptionFlag, sendGA('《一般資料保護規則》（GDPR）')">
     <span class="title">
       <slot></slot>
+      <i class="fas fa-info-circle"></i>
     </span>
     <div
       v-show="descriptionFlag"
@@ -48,9 +49,6 @@ export default {
   .dictionary-container {
     color: #d53636;
     cursor: pointer;
-    .title {
-      text-decoration: underline;
-    }
     .description-wrapper {
       border: solid 1px #d53636;
       padding: 45px;

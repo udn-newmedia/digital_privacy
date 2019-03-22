@@ -33,39 +33,41 @@
             <div>運動手環 恐洩個資和ATM密碼</div>
           </div>
           <p slot="text">
-            國外<a href="https://www.dailymail.co.uk/sciencetech/article-3429067/Is-fitness-tracker-putting-privacy-risk-Claims-selling-wearables-leaking-data-turned-off.html" @click="sendGA('研究')">研究</a>發現，包含小米、Fitbit、Garmin等7款運動手環，會透過藍牙連接洩漏用戶個資，即使將配對手機上的藍牙功能關閉也無濟於事。此外，駭客透過入侵穿戴式設備的運動傳感器，用戶輸入密碼時的手勢可以被記錄，利用運動軌跡分析，然後盜取ATM密碼。
+            國外<a href="https://www.dailymail.co.uk/sciencetech/article-3429067/Is-fitness-tracker-putting-privacy-risk-Claims-selling-wearables-leaking-data-turned-off.html" @click="sendGA('研究')" target="_blank">研究</a>發現，包含小米、Fitbit、Garmin等7款運動手環，會透過藍牙連接洩漏用戶個資，即使將配對手機上的藍牙功能關閉也無濟於事。此外，駭客透過入侵穿戴式設備的運動傳感器，用戶輸入密碼時的手勢可以被記錄，利用運動軌跡分析，然後盜取ATM密碼。
           </p>
         </StoryCard>
         <StoryCard
           :index="2"
+          :imageSrc="'./story_board/day3.gif'"
         >
-          <div slot="video">
+          <!-- <div slot="video">
             <FullVideo
               videoSrcMob="./story_board/day3.mp4"
               videoSrcWeb="./story_board/day3.mp4"
               :isFullHeight="true"
             ></FullVideo>
-          </div>
+          </div> -->
           <div slot="description">影音／報系資料庫</div>
           <div slot="title" class="card-warning-title">
             <div class="title-icon">！</div>
             <div>人臉辨識 恐侵犯民眾隱私</div>
           </div>
           <p slot="text">
-            台灣近年將人臉辨識技術廣泛運用在公、私部門，如檢警犯罪偵查、捷運廣告看板及無人超商結帳系統，但相關的隱私問題也引發爭議。台北市曾宣布將建置1萬2600盞有人臉辨識功能的<a href="https://udn.com/news/story/7323/3160105" @click="sendGA('智慧路燈')">智慧路燈</a>以維持治安，引發民間反彈，認為此舉等同監控人民的行蹤，北市府隨後緊急喊卡。
+            台灣近年將人臉辨識技術廣泛運用在公、私部門，如檢警犯罪偵查、捷運廣告看板及無人超商結帳系統，但相關的隱私問題也引發爭議。台北市曾宣布將建置1萬2600盞有人臉辨識功能的<a href="https://udn.com/news/story/7323/3160105" @click="sendGA('智慧路燈')" target="_blank">智慧路燈</a>以維持治安，引發民間反彈，認為此舉等同監控人民的行蹤，北市府隨後緊急喊卡。
           </p>
         </StoryCard>
         <StoryCard
           :index="3"
+          :imageSrc="'./story_board/day4.gif'"
         >
-          <div slot="video">
+          <!-- <div slot="video">
             <FullVideo
               videoSrcMob="./story_board/day4.mp4"
               videoSrcWeb="./story_board/day4.mp4"
               :isFullHeight="true"
             >
             </FullVideo>
-          </div>
+          </div> -->
           <div slot="description">影音／報系資料庫</div>
           <div slot="title" class="card-warning-title">
             <div class="title-icon">！</div>
@@ -85,7 +87,7 @@
             <div>逾250款手遊App在監聽用戶</div>
           </div>
           <p slot="text">
-            <a href="https://www.nytimes.com/2017/12/28/business/media/alphonso-app-tracking.html?_r=1" @click="sendGA('紐約時報')">紐約時報</a>揭露，有超過250款遊戲App，都安裝美國軟體開發商Alphonso的外掛程式，該外掛透過手機麥克風辨識電視節目聲音，藉此紀錄用戶收視習慣，以投放廣告。這當中有不少遊戲可以在台灣的iOS及Android手機平台下載，例如Pool 3D、Honey Quest等。
+            <a href="https://www.nytimes.com/2017/12/28/business/media/alphonso-app-tracking.html?_r=1" @click="sendGA('紐約時報')" target="_blank">紐約時報</a>揭露，有超過250款遊戲App，都安裝美國軟體開發商Alphonso的外掛程式，該外掛透過手機麥克風辨識電視節目聲音，藉此紀錄用戶收視習慣，以投放廣告。這當中有不少遊戲可以在台灣的iOS及Android手機平台下載，例如Pool 3D、Honey Quest等。
           </p>
         </StoryCard>
       </Slick>
@@ -95,7 +97,7 @@
 </template>
 
 <script>
-import FullVideo from './FullVideo.vue';
+// import FullVideo from './FullVideo.vue';
 import StoryCard from './StoryCard.vue';
 import {mapActions, mapState} from 'vuex';
 
@@ -107,7 +109,7 @@ import '../../node_modules/slick-carousel/slick/slick-theme.css';
 export default {
   name: 'StoryBoard',
   components: {
-    FullVideo,
+    // FullVideo,
     StoryCard,
     Slick,
   },
@@ -177,7 +179,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   .story-board-contianer {
     position: relative;
     width: 100%;
@@ -205,6 +207,23 @@ export default {
       margin: 50px 0;
       color: #a7a7a7;
     }
+  }
+
+  .slick-slide
+  {
+      display: none;
+      float: left;
+      height: 100%;
+      min-height: 1px;
+      outline: none !important;
+  }
+  .slick-dots li button:before
+  {
+      color: #ff3309;
+  }
+  .slick-dots li.slick-active button:before
+  {
+      color: #ff3309;
   }
 </style>
 

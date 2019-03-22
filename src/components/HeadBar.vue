@@ -1,23 +1,30 @@
 <template>
-  <div class="head-bar-container">
+  <div
+    :class="{
+      'head-bar-container': true,
+      'fold': webFoldFlag,
+    }"
+  >
     <div class="logo-container">
       <div class="logo-wrapper" @click="sendGA_Logo('聯logo')">
-        <a :href="projectHref" target="_blank">
+        <a :href="projectHref">
           <i class="udn-icon udn-icon-logo"></i>
         </a>
       </div>
     </div>
-    <div v-if="!isMob" class="links-wrapper">
+    <div 
+      class="links-wrapper"
+    >
       <div v-for="(item, index) in outLinkList" :key="index"
         class="link-button"
         @click="sendGA(item.name)"
       >
-        <a :href="item.link" target="_blank">{{item.name}}</a>
+        <a v-if="index === 0" :href="item.link" style="color: #464646; font-weight: bold;" target="_blank">{{item.name}}</a>
+        <a v-if="index !== 0" :href="item.link" target="_blank">{{item.name}}</a>
       </div>
     </div>
     <slot name="anchor"></slot>
     <div
-      v-if="isMob"
       class="links-mob-toggle-wrapper"
       @click="burgerClick"
     >
@@ -29,7 +36,6 @@
       </div>
     </div>
     <div
-      v-if="isMob"
       class="links-mob-container"
       :style="{
         transform: 'translateX(' + headBarTraslation + 'vw)',
@@ -44,13 +50,13 @@
       </div>
       <div class="share-wrapper">
         <div>分享</div>
-        <div class="share-btn" @click="shareFacebookGA">
-          <a :href="'https://www.facebook.com/sharer/sharer.php?u=' + projectHref" target="_blank">
+        <div class="share-btn" @click="shareFacebook(projectHref)">
+          <a>
             <img src="img/btn_fb.svg" alt="">
           </a>
         </div>
-        <div class="share-btn" @click="shareLineGA">
-          <a :href="'https://social-plugins.line.me/lineit/share?url=' + projectHref" target="_blank">
+        <div class="share-btn" @click="shareLine">
+          <a>
             <img src="img/btn_line.svg" alt="">
           </a>
         </div>
@@ -75,9 +81,9 @@ export default {
   },
   data() {
     return {
-      isMob: false,
       burgerFlag: false,
       headBarTraslation: 100,
+      webFoldFlag:  true,
     };
   },
   methods: {
@@ -97,7 +103,19 @@ export default {
         "eventLabel": "[" + Utils.detectPlatform() + "] [" + document.querySelector('title').innerHTML + "] [" + target + "] [logo click]"
       })
     },
-    shareFacebookGA() {
+    shareFacebook(projectHref) {
+      FB.ui({
+        method: 'share_open_graph',
+        action_type: 'og.shares',
+        action_properties: JSON.stringify({
+          object: {
+            'og:url': projectHref,
+            'og:title': document.querySelector('title').innerHTML,
+            'og:description': document.querySelector('meta[property="og:description"]'),
+            'og:image': document.querySelector('meta[property="og:image"]'),
+          },
+        })
+      })
       window.ga('newmedia.send', {
         hitType: 'event',
         eventCategory: 'share',
@@ -105,7 +123,13 @@ export default {
         eventLabel: '[' + Utils.detectPlatform() + '] [' + document.querySelector('title').innerHTML + '] [特製fb icon] [fb share]'
       });
     },
-    shareLineGA() {
+    shareLine() {
+      if (Utils.detectMob()) {
+        // 手機
+        window.open(`https://line.me/R/msg/text/?"${document.querySelector('title').innerHTML}%0D%0A%0D%0A${document.querySelector('meta[property="og:description"]').content}%0D%0A%0D%0A${this.projectHref}`);
+      } else {
+        window.open(`https://lineit.line.me/share/ui?url=${this.projectHref}`);
+      }
       window.ga('newmedia.send', {
         hitType: 'event',
         eventCategory: 'share',
@@ -113,11 +137,11 @@ export default {
         eventLabel: '[' + Utils.detectPlatform() + '] [' + document.querySelector('title').innerHTML + '] [特製line icon] [line share]'
       });
     },
-    certifyDevice() {
-      if (window.innerWidth > 768) {
-        return false;
+    handleScroll() {
+      if (window.pageYOffset === 0 && this.headBarTraslation === 100) {
+        this.webFoldFlag = true;
       } else {
-        return true;
+        this.webFoldFlag = false;
       }
     },
     burgerClick() {
@@ -131,11 +155,10 @@ export default {
     },
   },
   mounted() {
-    const vm = this;
-    this.isMob = this.certifyDevice();
-    window.addEventListener('resize', function() {
-      vm.isMob = vm.certifyDevice();
-    });
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  destroyed() {
+    window.removeEventListener('scroll', this.handleScroll);
   },
 };
 </script>
@@ -145,17 +168,26 @@ export default {
     position: fixed;
     z-index: 9998;
     width: 100%;
-    height: 50px;
+    height: 58px;
     background: #ffffff;
     display: flex;
     justify-content: space-between;
+    transition: transform .333s ease-in-out;
+
     a {
       text-decoration: none;
     }
   }
+
+  .fold {
+    transform: translateY(-58px);
+    transition: transform .333s ease-in-out;
+  }
+
   .logo-container {
+    position: relative;
     height: 100%;
-    width: 50px;
+    width: 58px;
     .logo-wrapper {
       height: 100%;
       width: 100%;
@@ -163,7 +195,6 @@ export default {
       justify-content: center;
       align-items: center;
       font-size: 36px;
-
       i {
         color: #000000;
         transform: rotate(0deg);
@@ -175,14 +206,22 @@ export default {
     }
   }
   .links-wrapper {
+    @media screen and (min-width: 1024px) {
+      display: flex;
+    }
+    display: none;
+    position: relative;
     height: 100%;
+    width: 100%;
+    justify-content: flex-end;
     .link-button {
       height: 100%;
       float: left;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 10px;
+      padding: 15px;
+      font-size: 20px;
       a {
         color: #acacac;
         transition: 288ms ease-in;
@@ -193,6 +232,9 @@ export default {
     }
   }
   .links-mob-toggle-wrapper {
+    @media screen and (min-width: 1024px){
+      display: none;
+    }
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -259,11 +301,14 @@ export default {
     }
   }
   .links-mob-container {
+    @media screen and (min-width: 1024px){
+      display: none;
+    }
     position: absolute;
-    top: 50px;
+    top: 58px;
     right: 0;
     width: 100vw;
-    height: calc(100vh - 50px);
+    height: calc(100vh - 58px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;

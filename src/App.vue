@@ -28,11 +28,11 @@
       </div>
 
       <div slot="intro" class="cover-text">
-        <p>你是否有過以下經驗？明明沒打卡，手機卻跳出Google要你為餐廳評分的訊息；在網路上買一串衛生紙，隔天立刻接到詐騙電話？小心！你在網路上的一舉一動，都在洩漏隱私。你的喜好、習慣和身分資料，在不知情的情況下，被蒐集、分析、販賣，我們卻不知道誰在跟蹤我們、自己有多少資料外洩。</p>
+        <p>明明沒在社群網站打卡，手機卻跳出Google要你為餐廳評分的訊息；到快時尚服飾店買衣服，回家後臉書就出現該品牌的廣告。小心！你在網路上的一舉一動，都在洩漏隱私。</p>
         <p><br></p>
-        <p>而這些「免費」拿走隱私的科技業者，財富卻以驚人速度增加。</p>
+        <p>你的喜好、習慣和身分資料，在不知情的情況下被蒐集、販賣，我們卻不知道誰在跟蹤我們、自己有多少資料外洩。而這些「免費」拿走隱私的科技業者，財富卻以驚人速度增加。</p>
         <p><br></p>
-        <p><strong style="color: #6495ed;">「隱私是一種基本人權」</strong>，蘋果執行長庫克警告，我們的個資正被「武器化」，用來瞄準我們。當這些數據不斷被累積、組裝與交易，我們面對的未來不但有害、甚至會致命。</p>
+        <p><strong style="color: #6495ed;">「隱私是一種基本人權」</strong>，蘋果執行長庫克（Tim Cook）警告，我們的個資正被「武器化」，用來瞄準我們。當這些資料不斷被組裝、合成與交易，將對我們帶來有害、甚至致命的影響。</p>
       </div>
     </ProjectCover>
     <NoiseCover
@@ -83,7 +83,7 @@
         font-weight: normal;
         color: #808080;
         ">
-        資料來源／2018台灣網路透明度報告
+        資料來源／2017年台灣數位廣告量統計報告
       </div>
     </DynamicDigit>
     <ArticleContent :style="{ paddingTop: '10px' }">
@@ -96,8 +96,6 @@
       <p>這些「原油和火藥」，現在掌握在少數網路科技巨頭的手中：Google、LINE、阿里巴巴、Facebook、Amazon…。我們也相信業者會好好保護個資、信任它們不會濫用。</p>
       <p><br></p>
       <p>但是，這只是消費者的一廂情願。</p>
-      <p><br></p>
-      <p>2018年Facebook連番爆發用戶個資外洩的醜聞後，用戶才發現，原來Facebook平台上的大量用戶資料，很容易被客戶或一個小遊戲取走，連Facebook也不知道這些資料後續的用途。</p>
       <p><br></p>
       <Quote text="“2018年Facebook連番爆發用戶個資外洩的醜聞後，世人才知Facebook平台上的用戶資料很容易被一個小遊戲取走，連Facebook也不知道這些資料後續的用途。”"></Quote>
       <p><br></p>
@@ -115,14 +113,14 @@
       <p><br></p>
       <p>小企業對資料保護不夠力，但大企業對用戶也是予取予求。台灣使用者大量使用Google、Facebook、Amazon、LINE的各種服務，LINE去年更新隱私權政策並公告用戶，資料將被用來行銷、賣廣告，用戶憤怒於自己的資料被企業拿來賺錢，卻喊不出「不用最大」，人人都按了同意，繼續LINE在一起。</p>
       <p><br></p>
-      <p>台灣AI Labs創辦人杜奕瑾去年宣布啟動「ptt.ai」，希望落實「資料正義」。他j撰文指出，幾家網路巨頭寡占了大量的網路資料，即使使用者想拒絕交出個資，也沒有其他服務替代方案。</p>
+      <p>台灣AI Labs創辦人杜奕瑾去年宣布啟動「ptt.ai」，希望落實「資料正義」。他撰文指出，幾家網路巨頭寡占了大量的網路資料，即使使用者想拒絕交出個資，也沒有其他服務替代方案。</p>
       <p><br></p>
       <p>新興的新創公司，如果不把自己的App放在巨頭的平台「上架」，就沒有生意；即使幸運成功，往往打不過巨頭們後來居上、推出類似軟體，再砸大錢行銷或直接收購。</p>
       <p><br></p>
       <p>要求這些國際企業向用戶彎腰，幾乎是不可能的事情，它們的態度就是「不滿意可以不要用」；這是全球用戶共同的困境。</p>
     </ArticleContent>
     <FullVideo videoSrcMob="video/OK_mob.mp4" videoSrcWeb="video/OK_web.mp4">
-      <div class="full-video-text">天下沒有免費的服務，當你按下「我同意」的那一刻，你已經出賣了你的隱私權。</div>
+      <div class="full-video-text">天底下沒有免費的服務，當你按下「我同意」的那一刻，你已經出賣了你的隱私權。</div>
     </FullVideo>
     <ArticleContent>
       <p><br></p>
@@ -191,7 +189,7 @@
         imgSrcMob="img/mob1_02.jpg"
         imgSrcWeb="img/web1_02.jpg"
       >
-        <div class="full-image-text">有些手電筒App要求存取過多軟體用不到的權限，可能造成用戶隱私外洩。</div>
+        <div class="image-text">有些手電筒App要求存取過多軟體用不到的權限，可能造成用戶隱私外洩。</div>
       </FullImage>
       <p><br></p>
       <p><br></p>
@@ -214,7 +212,7 @@
       <p><br></p>
       <h3>3大原因<br>使用者輕忽個資外洩風險</h3>
       <p><br></p>
-      <p>「我又不是什麼咖，企業拿到我的個資，也不會怎麼樣。」台灣駭客協會常務理事翁浩正說，最常聽到這樣的說詞，「大家隨意提供個資換取免費服務，完全不在意」。他說：「<strong>「會覺得自己不是個咖，是因為不懂這些隱私與權限可以做多少事。」</strong></p>
+      <p>「我又不是什麼咖，企業拿到我的個資，也不會怎麼樣。」台灣駭客協會常務理事翁浩正說，最常聽到這樣的說詞，「大家隨意提供個資換取免費服務，完全不在意」。他說：<strong>「會覺得自己不是個咖，是因為不懂這些隱私與權限可以做多少事。」</strong></p>
       <p><br></p>
       <p>台灣人權協會專案經理何明諠說，消費者不花時間是把業者的約定條款看完，急著按下同意，是有原因的：</p>
       <p><br></p>
@@ -248,14 +246,8 @@
       <p><strong>5.不看盜版影音網站</strong></p>
       <p>台灣盜版影音猖獗，不少網站被抄了幾次都能捲土重來，就是因為觀看流量大，帶來的廣告商機驚人。<strong>串流影音業者承認，免費影音網站都會在你的觀看設備如手機、電腦中，埋入追蹤網路行為的cookie</strong>，即使你換到別的網站，廣告也是如影隨形。有些網站更可能帶有病毒，盜取使用者個資。</p>
     </ArticleContent>
+    <Banner></Banner>
     <ArticleContent backgroundColor="#ffffff">
-      <p><strong>聯合報系願景工程3/25起一連三天推出「隱私網戰」專題報導<a href="" target="_blank" @click="sendGA('「透明人生─隱私危機」')"></a>，</strong>由民眾對數位足跡的不在意、企業蒐集窺探你的生活，以及政府作為最大的人民個資擁有者，如何在發展大數據時兼顧個資等角度，探討台灣面臨的數位人權難題。</p>
-      <p><br></p>
-      <p><br></p>
-      <Question href="https://www.surveycake.com/s/KpQKN" text="填寫閱讀體驗問卷"></Question>
-      <p><br></p>
-      <p><br></p>
-      <p><br></p>
       <Share href="https://udn.com/upf/newmedia/2019_data/digital_privacy/"></Share>
       <Logo use-vision="yes"></Logo>
       <p><br></p>
@@ -268,6 +260,8 @@
         <div>監製：林秀姿、潘如瑩、董谷音</div>
         <div>2019.03.25</div>
       </Editor>
+      <p><br></p>
+      <Question href="https://www.surveycake.com/s/KpQKN" text="填寫閱讀體驗問卷"></Question>
       <p><br></p>
       <Relate
         href1="https://udn.com/news/story/6811/3440980"
@@ -295,6 +289,7 @@
 <script>
 import ArticleContent from '@/components/ArticleContent.vue'
 import BackTop from '@/components/BackTop.vue'
+import Banner from '@/components/Banner.vue'
 import Dictionary from '@/components/Dictionary.vue'
 import DynamicDigit from '@/components/DynamicDigit.vue'
 import Editor from '@/components/Editor.vue'
@@ -321,6 +316,7 @@ export default {
   components: {
     ArticleContent,
     BackTop,
+    Banner,
     Dictionary,
     DynamicDigit,
     Editor,
@@ -349,11 +345,11 @@ export default {
         },
         {
           name: '政府正在監控你',
-          link: 'https://udn.com/upf/newmedia/2019_data/digital_privacy/government',
+          link: 'https://udn.com/upf/newmedia/2019_data/digital_privacy/government/',
         },
         {
           name: '測驗透明人指數',
-          link: 'https://udn.com/upf/newmedia/2019_data/digital_privacy/quiz',
+          link: 'https://udn.com/upf/newmedia/2019_data/digital_privacy/quiz/',
         },
       ],
     };

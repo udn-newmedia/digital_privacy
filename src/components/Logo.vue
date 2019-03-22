@@ -18,17 +18,20 @@
     </div>
     <div
       class="logo"
+      @click="sendGA('經濟日報')"
+    >
+      <a href="https://money.udn.com/money/" target="_blank">
+        <img src="img/money_logo.svg">
+      </a>
+    </div>
+    <div
+      class="logo"
       id="nmd"
       v-if="!yesToBoolean(setProps('useUbrand'))"
       @click="sendGA('新媒體')"
     >
-      <a href="https://www.facebook.com/udnNewMediaLab/" target="_blank">
-        <img src="https://udn.com/upf/newmedia/image/20180829Logo/logo_new_media_center2.jpg">
-      </a>
+      <img src="https://udn.com/upf/newmedia/image/20180829Logo/logo_new_media_center2.jpg">
     </div>
-    <div class="thirdparty">
-      <slot></slot>
-    </div>    
   </div>
 </template>
 
@@ -54,7 +57,7 @@ export default {
   },
   methods: {
     sendGA(target) {
-      ga("newmedia.send", {
+      window.ga("newmedia.send", {
         "hitType": "event",
         "eventCategory": "logo",
         "eventAction": "click",
@@ -68,24 +71,19 @@ export default {
 <style lang="scss" scoped>
   .logo{
     width: 140px;
+    margin-top: 20px;
+    @media screen and (min-width: 1024px){
+      margin-top: 0;
+    }
     img{
       width: 100%;
       height: auto;
     }
   }
-  #vision img{
-    width: 100%;
-  }
-  .thirdparty{
-    display: block;
-  }
-  #nmd img{
-    width: 100%;
-  }
   .logo-block{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     align-content: flex-start;
     align-items: flex-start;
   }
@@ -112,9 +110,6 @@ export default {
     }
     .logo{
       margin-left: 12px;
-    }
-    .thirdparty{
-      display: inline-block;
     }
   }
 </style>

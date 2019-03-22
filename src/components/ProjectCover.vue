@@ -19,13 +19,13 @@
     <div class="cover-text-wrapper" :style="{backgroundColor: backgroundColor}">
       <slot name="intro"></slot>
       <div class="share-wrapper">
-        <div class="share-btn" @click="shareFacebookGA">
+        <div class="share-btn" @click="shareFacebook">
           <a :href="'https://www.facebook.com/sharer/sharer.php?u=' + href" target="_blank">
             <img src="img/btn_fb.svg" alt="">
           </a>
         </div>
-        <div class="share-btn" @click="shareLineGA">
-          <a :href="'https://social-plugins.line.me/lineit/share?url=' + href" target="_blank">
+        <div class="share-btn" @click="shareLine">
+          <a>
             <img src="img/btn_line.svg" alt="">
           </a>
         </div>
@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import { detectPlatform } from 'udn-newmedia-utils';
+import Utils from 'udn-newmedia-utils';
 
 export default {
   name: "ProjectCover",
@@ -77,20 +77,27 @@ export default {
     },
   },
   methods: {
-    shareFacebookGA() {
+    shareFacebook() {
       window.ga('newmedia.send', {
         hitType: 'event',
         eventCategory: 'share',
         eventAction: 'click',
-        eventLabel: `[${detectPlatform()}] [${document.querySelector('title').innerHTML}] [特製fb icon] [fb share]`,
+        eventLabel: `[${Utils.detectPlatform()}] [${document.querySelector('title').innerHTML}] [特製fb icon] [fb share]`,
       });
     },
-    shareLineGA() {
+    shareLine() {
+      if (Utils.detectMob()) {
+        // 手機
+        window.open(`https://line.me/R/msg/text/?"${document.querySelector('title').innerHTML}%0D%0A%0D%0A${document.querySelector('meta[property="og:description"]').content}%0D%0A%0D%0A${this.href}`);
+      } else {
+        window.open(`https://lineit.line.me/share/ui?url=${this.href}`);
+      }
+
       window.ga('newmedia.send', {
         hitType: 'event',
         eventCategory: 'share',
         eventAction: 'click',
-        eventLabel: `[${detectPlatform()}] [${document.querySelector('title').innerHTML}] [特製line icon] [line share]`,
+        eventLabel: `[${Utils.detectPlatform()}] [${document.querySelector('title').innerHTML}] [特製line icon] [line share]`,
       });
     },
     handleScroll() {
@@ -191,12 +198,13 @@ export default {
   position: relative;
   z-index: 20;
   width: 100%;
-  height: 100vh;
+  // height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   opacity: 0.87;
+  padding: 50px 0;
 
   .cover-text {
     position: relative;
@@ -204,7 +212,7 @@ export default {
     padding: 5px 15px;
     font-size: 17px;
     color: #ffffff;
-    text-align: left;
+    text-align: justify;
     @media screen and (min-width: 1024px) {
       width: 800px;
       margin: 0 auto;

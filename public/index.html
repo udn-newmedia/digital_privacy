@@ -151,8 +151,18 @@
       js.src = "//connect.facebook.net/zh_TW/sdk.js?t-1#xfbml=1&version=v2.7&appId=1010324812347164";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
-
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId            : '1010324812347164',
+          autoLogAppEvents : true,
+          xfbml            : true,
+          version          : 'v3.2'
+        });
+      };
+    </script>
     <div id="app"></div>
+    <script async defer src="https://connect.facebook.net/zh_TW/sdk.js?t-1#xfbml=1&version=v3.2&appId=1010324812347164"></script>
     <!-- built files will be auto injected -->
   </body>
 </html>

@@ -35,7 +35,7 @@ export default {
 .article {
   position: relative;
   width: 100%;
-  text-align: left;
+  text-align: justify;
   @media screen and (min-width: 1024px) {
     width: 800px;
     margin: 0 auto;

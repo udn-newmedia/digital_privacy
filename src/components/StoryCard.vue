@@ -33,7 +33,7 @@
         </div>
       </div>
       <div
-        v-if="!imageSrc"
+        v-show="!imageSrc"
         class="card-video-wrapper"
       >
         <slot name="video"></slot>
@@ -57,7 +57,7 @@
               class="fas fa-arrow-right"
             ></i>
             <i
-              v-if="certifyDirction !== 'next'"
+              v-if="certifyDirction === 'prev'"
               class="fas fa-arrow-left">
             </i>
           </div>
@@ -105,10 +105,9 @@ export default {
     certifyDirction() {
       if (this.storyCardPage > this.index) {
         return 'prev';
-      } 
-      if (this.storyCardPage < this.index) {
+      } else if (this.storyCardPage < this.index) {
         return 'next';
-      }
+      } else return '';
     },
   },
   methods: {
@@ -134,9 +133,12 @@ export default {
 <style lang="scss" scoped>
   .story-card-container {
     position: relative;
-    height: 80vh;
+    height: 70vh;
     padding: 1%;
     cursor: pointer;
+    @media screen and (min-width: 1024px) {
+      height: 80vh;
+    }
 
     .card-media-wrapper {
       height: 40%;
@@ -148,6 +150,8 @@ export default {
         width: 100%;
         height: 100%;
         background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
       }
       .card-image-description {
         position: relative;
