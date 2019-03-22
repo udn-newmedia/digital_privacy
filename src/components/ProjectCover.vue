@@ -20,7 +20,7 @@
       <slot name="intro"></slot>
       <div class="share-wrapper">
         <div class="share-btn" @click="shareFacebook">
-          <a :href="'https://www.facebook.com/sharer/sharer.php?u=' + href" target="_blank">
+          <a>
             <img src="img/btn_fb.svg" alt="">
           </a>
         </div>
@@ -78,6 +78,19 @@ export default {
   },
   methods: {
     shareFacebook() {
+      window.FB.ui({
+        method: 'share_open_graph',
+        action_type: 'og.shares',
+        action_properties: JSON.stringify({
+          object: {
+            'og:url': 'https://udn.com/upf/newmedia/2019_data/digital_privacy/index.html',
+            'og:title': '按讚、打卡、看影音 你的數位隱私保障了嗎？',
+            'og:description': '數位經濟時代，擁有最大資訊者得天下。你的隱私，是科技業者的金礦。數位人權保衛戰，正要開打。',
+            'og:image': 'https://udn.com/upf/newmedia/2019_data/digital_privacy/meta.jpg',
+          },
+        })
+      })
+
       window.ga('newmedia.send', {
         hitType: 'event',
         eventCategory: 'share',
@@ -198,13 +211,14 @@ export default {
   position: relative;
   z-index: 20;
   width: 100%;
+  min-height: 100vh;
   // height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   opacity: 0.87;
-  padding: 50px 0;
+  padding: 100px 0;
 
   .cover-text {
     position: relative;

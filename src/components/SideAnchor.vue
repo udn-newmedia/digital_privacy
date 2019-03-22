@@ -77,7 +77,9 @@ export default {
               vm.anchorFlag[i] = true;
               
               // 送出錨點GA
-              window.ga('send', 'pageview', '/upf/newmedia/2019_data/digital_privacy/#/self_protection');
+              window.ga('newmedia.send', 'pageview', '/upf/newmedia/2019_data/digital_privacy/#/self_protection');
+              window.ga('udn.send', 'pageview', '/upf/newmedia/2019_data/digital_privacy/#/self_protection');
+              window.ga('theme.send', 'pageview', '/upf/newmedia/2019_data/digital_privacy/#/self_protection');
             }
           } else {
             vm.$refs['anchorRef' + i][0].style.color = '#c8c8c8';
@@ -93,7 +95,9 @@ export default {
               vm.anchorFlag[i] = true;
               
               // 送出錨點GA
-              window.ga('send', 'pageview', '/upf/newmedia/2019_data/digital_privacy/#/crisis');
+              window.ga('newmedia.send', 'pageview', '/upf/newmedia/2019_data/digital_privacy/#/crisis');
+              window.ga('udn.send', 'pageview', '/upf/newmedia/2019_data/digital_privacy/#/crisis');
+              window.ga('theme.send', 'pageview', '/upf/newmedia/2019_data/digital_privacy/#/crisis');
             }
           } else {
             vm.$refs['anchorRef' + i][0].style.color = '#c8c8c8';

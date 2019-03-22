@@ -38,7 +38,7 @@
         </StoryCard>
         <StoryCard
           :index="2"
-          :imageSrc="'./story_board/day3.gif'"
+          :imageSrc="'./story_board/day3_1.gif'"
         >
           <!-- <div slot="video">
             <FullVideo
@@ -58,7 +58,7 @@
         </StoryCard>
         <StoryCard
           :index="3"
-          :imageSrc="'./story_board/day4.gif'"
+          :imageSrc="'./story_board/day4_1.gif'"
         >
           <!-- <div slot="video">
             <FullVideo

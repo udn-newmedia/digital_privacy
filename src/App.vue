@@ -28,7 +28,7 @@
       </div>
 
       <div slot="intro" class="cover-text">
-        <p>明明沒在社群網站打卡，手機卻跳出Google要你為餐廳評分的訊息；到快時尚服飾店買衣服，回家後臉書就出現該品牌的廣告。小心！你在網路上的一舉一動，都在洩漏隱私。</p>
+        <p>你曾經到餐廳吃飯，沒打卡，但google地圖卻跳出餐廳位址要你給個評價？或是上網買個掃地機器人，隔天就接到詐騙電話？小心！你在網路上的一舉一動，都在洩漏隱私。</p>
         <p><br></p>
         <p>你的喜好、習慣和身分資料，在不知情的情況下被蒐集、販賣，我們卻不知道誰在跟蹤我們、自己有多少資料外洩。而這些「免費」拿走隱私的科技業者，財富卻以驚人速度增加。</p>
         <p><br></p>
@@ -248,6 +248,9 @@
     </ArticleContent>
     <Banner></Banner>
     <ArticleContent backgroundColor="#ffffff">
+      <Question href="https://www.surveycake.com/s/KpQKN" text="填寫閱讀體驗問卷"></Question>
+      <p><br></p>
+      <p><br></p>
       <Share href="https://udn.com/upf/newmedia/2019_data/digital_privacy/"></Share>
       <Logo use-vision="yes"></Logo>
       <p><br></p>
@@ -260,8 +263,6 @@
         <div>監製：林秀姿、潘如瑩、董谷音</div>
         <div>2019.03.25</div>
       </Editor>
-      <p><br></p>
-      <Question href="https://www.surveycake.com/s/KpQKN" text="填寫閱讀體驗問卷"></Question>
       <p><br></p>
       <Relate
         href1="https://udn.com/news/story/6811/3440980"

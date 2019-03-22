@@ -103,19 +103,20 @@ export default {
         "eventLabel": "[" + Utils.detectPlatform() + "] [" + document.querySelector('title').innerHTML + "] [" + target + "] [logo click]"
       })
     },
-    shareFacebook(projectHref) {
-      FB.ui({
+    shareFacebook() {
+      window.FB.ui({
         method: 'share_open_graph',
         action_type: 'og.shares',
         action_properties: JSON.stringify({
           object: {
-            'og:url': projectHref,
-            'og:title': document.querySelector('title').innerHTML,
-            'og:description': document.querySelector('meta[property="og:description"]'),
-            'og:image': document.querySelector('meta[property="og:image"]'),
+            'og:url': 'https://udn.com/upf/newmedia/2019_data/digital_privacy/index.html',
+            'og:title': '按讚、打卡、看影音 你的數位隱私保障了嗎？',
+            'og:description': '數位經濟時代，擁有最大資訊者得天下。你的隱私，是科技業者的金礦。數位人權保衛戰，正要開打。',
+            'og:image': 'https://udn.com/upf/newmedia/2019_data/digital_privacy/meta.jpg',
           },
         })
       })
+      
       window.ga('newmedia.send', {
         hitType: 'event',
         eventCategory: 'share',

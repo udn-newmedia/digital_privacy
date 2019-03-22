@@ -10,7 +10,7 @@
     
     <!-- for Facebook -->
     <meta property="og:title" content="按讚、打卡、看影音 你的數位隱私保障了嗎？"/>
-    <meta property="og:url" content="https://udn.com/upf/newmedia/2019_data/digital_privacy/index.html"/>
+    <meta property="og:url" content="https://udn.com/upf/newmedia/2019_data/digital_privacy/"/>
     <meta property="og:image" content="https://udn.com/upf/newmedia/2019_data/digital_privacy/meta.jpg"/>
     <meta property="og:description" content="數位經濟時代，擁有最大資訊者得天下。你的隱私，是科技業者的金礦。數位人權保衛戰，正要開打。"/>
 
@@ -144,13 +144,6 @@
   </head>
   <body>
     <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/zh_TW/sdk.js?t-1#xfbml=1&version=v2.7&appId=1010324812347164";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
     <script>
       window.fbAsyncInit = function() {
         FB.init({
@@ -159,10 +152,17 @@
           xfbml            : true,
           version          : 'v3.2'
         });
+        FB.AppEvents.logPageView();
       };
     </script>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/zh_TW/sdk.js?t-1#xfbml=1&version=v3.2&appId=1010324812347164";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
     <div id="app"></div>
-    <script async defer src="https://connect.facebook.net/zh_TW/sdk.js?t-1#xfbml=1&version=v3.2&appId=1010324812347164"></script>
     <!-- built files will be auto injected -->
   </body>
 </html>
