@@ -43,10 +43,14 @@ export default {
       })
     },
     anchorEvent(id) {
-      window.scroll({
-        top: document.getElementById(id).offsetTop,
-        behavior: 'smooth',
-      });
+      if (Utils.detectIE()) {
+        window.scroll(0, document.getElementById(id).offsetTop)
+      } else {
+        window.scroll({
+          top: document.getElementById(id).offsetTop,
+          behavior: 'smooth',
+        });
+      }
     },
     activeFlag() {
       if (window.pageYOffset > 0) {
