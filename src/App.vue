@@ -23,8 +23,8 @@
       href="https://udn.com/upf/newmedia/2019_data/digital_privacy/"
     >
       <div slot="title" class="cover-title-wrapper">
-        <div class="minor">按讚、打卡、看影音</div>
-        <div class="major">你的數位隱私保障了嗎？</div>
+        <div class="minor"><h2>按讚、打卡、看影音</h2></div>
+        <div class="major"><h1>你的數位隱私保障了嗎？</h1></div>
       </div>
 
       <div slot="intro" class="cover-text">
@@ -214,7 +214,7 @@
       <p><br></p>
       <p>「我又不是什麼咖，企業拿到我的個資，也不會怎麼樣。」台灣駭客協會常務理事翁浩正說，最常聽到這樣的說詞，「大家隨意提供個資換取免費服務，完全不在意」。他說：<strong>「會覺得自己不是個咖，是因為不懂這些隱私與權限可以做多少事。」</strong></p>
       <p><br></p>
-      <p>台灣人權協會專案經理何明諠說，消費者不花時間是把業者的約定條款看完，急著按下同意，是有原因的：</p>
+      <p>台灣人權促進會專案經理何明諠說，消費者不花時間是把業者的約定條款看完，急著按下同意，是有原因的：</p>
       <p><br></p>
       <p><strong>1. 服務不可取代，LINE同事都在用，你不用就無法工作<br>2. 業者不同意，你就無法用服務<br>3. 使用條款法律文字落落長，很難看得完，看了也不見得看得懂</strong></p>
       <p><br></p>

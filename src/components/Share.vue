@@ -34,7 +34,7 @@ export default {
       } else {
         window.open(`https://lineit.line.me/share/ui?url=${this.setProps('href')}`);
       }
-      ga('newmedia.send', {
+      window.ga('newmedia.send', {
         hitType: 'event',
         eventCategory: 'share',
         eventAction: 'click',

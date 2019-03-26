@@ -166,16 +166,24 @@ export default {
     writing-mode: vertical-rl;
     text-orientation: upright;
     .major {
-      font-size: 36px;
-      letter-spacing: 5px;
-      color: #2b2b2b;
-      font-weight: 700;
+      h1 {
+        margin: 0;
+        padding: 0;
+        font-size: 36px;
+        letter-spacing: 5px;
+        color: #2b2b2b;
+        font-weight: 700;
+      }
     }
     .minor {
-      font-size: 22px;
-      letter-spacing: 10px;
-      color: #3e3e3e;
-      margin: 5px;
+      h2 {
+        margin: 0;
+        padding: 0;
+        font-size: 22px;
+        letter-spacing: 10px;
+        color: #3e3e3e;
+        margin: 5px;
+      }
     }
 
     @media screen and (min-width: 1024px) {
